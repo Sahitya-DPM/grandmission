@@ -3,22 +3,22 @@ import React from 'react';
 
 export const InteractivePreview: React.FC = () => {
   return (
-    <section className="w-full bg-[#F2F2F2] py-20 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-12 flex flex-col md:flex-row items-end justify-between gap-6">
+    <section className="w-full bg-[#F2F2F2] py-12 md:py-20 lg:py-32">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="mb-8 md:mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-4 md:gap-6">
           <div>
-             <div className="flex items-center gap-3 mb-4">
-              <span className="w-8 h-px bg-[#2F74B5]"></span>
-              <span className="text-[10px] font-black tracking-[0.4em] text-[#2F74B5] uppercase">Live Engine</span>
+             <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+              <span className="w-6 md:w-8 h-px bg-[#2F74B5]"></span>
+              <span className="text-[9px] md:text-[10px] font-black tracking-[0.3em] md:tracking-[0.4em] text-[#2F74B5] uppercase">Live Engine</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-[#0A0E1A] tracking-tighter uppercase leading-[0.9]">
+            <h2 className="text-4xl md:text-4xl lg:text-5xl font-extrabold text-[#0A0E1A] tracking-tighter uppercase leading-[0.9]">
               DYNAMIC <br />
               <span className="text-[#FF9A00]">VISUALIZER.</span>
             </h2>
           </div>
-          <div className="flex items-center gap-4 bg-white p-4 border border-slate-200">
+          <div className="flex items-center gap-2 md:gap-4 bg-white p-3 md:p-4 border border-slate-200">
              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-             <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Active Simulation Stream</span>
+             <span className="text-[8px] md:text-[9px] font-black text-slate-500 uppercase tracking-widest">Active Simulation Stream</span>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShieldCheck, ArrowUp, MapPin, Phone } from 'lucide-react';
+import { ArrowUp, MapPin, Phone } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -14,14 +14,12 @@ export const Footer: React.FC = () => {
           
           {/* Brand Column */}
           <div className="flex flex-col gap-12">
-            <div className="flex items-center gap-5">
-              <div className="bg-white p-2.5 rounded-none shrink-0">
-                <ShieldCheck className="h-7 w-7 text-[#0A0E1A]" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-2xl font-extrabold tracking-tighter text-white uppercase">Grand Mission</span>
-                <span className="text-xs font-black text-slate-500 tracking-[0.3em]">DENTISTRY</span>
-              </div>
+            <div className="flex items-center">
+              <img 
+                src="/images/grand_mission-logo footer.webp" 
+                alt="Grand Mission Dentistry Logo" 
+                className="h-12 w-auto object-contain"
+              />
             </div>
             <p className="text-slate-500 text-sm leading-relaxed font-bold uppercase tracking-[0.2em] opacity-70 max-w-[320px]">
               A nexus of clinical excellence and aesthetic precision. Engineering the future of personalized dental care in Richmond, TX.

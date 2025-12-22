@@ -56,14 +56,14 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* RIGHT PANEL - Evaluation Form */}
-      <div id="evaluation-form" className="lg:w-[55%] bg-white flex items-center justify-center p-8 lg:p-20">
+      <div id="evaluation-form" className="lg:w-[55%] bg-white flex items-center justify-center p-6 md:p-8 lg:p-20">
         <div className="w-full max-w-xl">
           {!isSuccess ? (
             <div className="bg-white p-1 md:p-4">
-              <div className="mb-14">
-                <h2 className="text-4xl font-extrabold text-[#0A0E1A] mb-4 tracking-tighter uppercase">
+              <div className="mb-8 md:mb-14">
+                <h2 className="text-4xl md:text-4xl font-extrabold text-[#0A0E1A] mb-4 tracking-tighter uppercase">
                   <span className="inline-block">Smile</span>
-                  <span className="inline-block ml-4">Evaluation</span>
+                  <span className="inline-block ml-2 md:ml-4">Evaluation</span>
                 </h2>
                 <div className="w-12 h-1.5 bg-[#FF9A00]"></div>
               </div>
