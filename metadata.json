@@ -1,0 +1,7 @@
+{
+  "name": "Smile Preview AI Landing Page",
+  "description": "A high-end, medical-grade landing page for AI-powered smile previews, focusing on emotional pre-qualification and patient motivation.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
