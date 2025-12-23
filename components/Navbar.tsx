@@ -3,6 +3,13 @@ import React from 'react';
 import { Phone } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
+  const scrollToForm = () => {
+    const element = document.getElementById('evaluation-form');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <nav className="sticky top-0 z-50 glass border-b border-slate-200 py-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +31,10 @@ export const Navbar: React.FC = () => {
                 <Phone className="h-4 w-4" />
                 (281) 789-8836
               </a>
-              <button className="bg-[#FF9A00] text-white px-12 py-6 rounded-none text-xs font-black uppercase tracking-[0.3em] hover:bg-[#0A0E1A] transition-all active:translate-y-[1px] shadow-lg shadow-orange-500/10">
+              <button 
+                onClick={scrollToForm}
+                className="bg-[#FF9A00] text-white px-12 py-6 rounded-none text-xs font-black uppercase tracking-[0.3em] hover:bg-[#0A0E1A] transition-all active:translate-y-[1px] shadow-lg shadow-orange-500/10"
+              >
                 Book Visit
               </button>
             </div>

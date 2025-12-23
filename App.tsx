@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Navbar } from './components/Navbar';
+import { PreviewDreamHero } from './components/PreviewDreamHero';
 import { Hero } from './components/Hero';
 import { InteractivePreview } from './components/InteractivePreview';
 import { Philosophy } from './components/Philosophy';
@@ -16,6 +17,7 @@ function App() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
+        <PreviewDreamHero />
         <Hero />
         <InteractivePreview />
         <Philosophy />
