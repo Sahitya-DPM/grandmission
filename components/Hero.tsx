@@ -114,8 +114,11 @@ export const Hero: React.FC = () => {
               src="https://link.digitalpresencematters.com/widget/form/wlgA39lNyyz2pOEeAE0H"
               className="w-full border-none rounded"
               style={{ 
-                height: '750px',
+                width: '100%', 
+                height: '750px', 
                 minHeight: '500px',
+                border: 'none', 
+                borderRadius: '4px',
                 overflow: 'hidden',
                 display: 'block'
               }}

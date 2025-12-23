@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
               <img 
                 src="/images/grand_mission-logo footer.webp" 
                 alt="Grand Mission Dentistry Logo" 
-                className="h-12 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </div>
             <p className="text-slate-500 text-sm leading-relaxed font-bold uppercase tracking-[0.2em] opacity-70 max-w-[320px]">

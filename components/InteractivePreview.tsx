@@ -65,6 +65,17 @@ export const InteractivePreview: React.FC = () => {
                       title={item.title}
                       allow="camera; microphone; clipboard-read; clipboard-write"
                     />
+                    {/* Overlay Info */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 md:p-8 lg:p-12">
+                      <div className="max-w-2xl">
+                        <h3 className="text-lg md:text-2xl lg:text-3xl font-extrabold text-white mb-2 md:mb-3 uppercase tracking-tight">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs md:text-sm lg:text-base text-slate-200 font-bold uppercase tracking-wide">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
