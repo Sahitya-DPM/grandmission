@@ -17,7 +17,7 @@ export const Philosophy: React.FC = () => {
         <span className="text-[20rem] font-black tracking-tighter leading-none text-[#3B86F2]">SAGE</span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           <div className="lg:w-1/3">
             <div className="sticky top-40">
