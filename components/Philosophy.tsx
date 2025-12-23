@@ -24,7 +24,7 @@ export const Philosophy: React.FC = () => {
               <div className="flex items-center gap-4 mb-8">
                 <span className="w-12 h-1 bg-[#2F74B5]"></span>
               </div>
-              <p className="text-[#3B86F2] font-bold text-sm uppercase tracking-widest leading-relaxed mb-8">
+              <p className="text-[#3B86F2] font-bold uppercase tracking-widest leading-relaxed mb-8" style={{ fontSize: '20px' }}>
                 MOST PEOPLE DON'T AVOID TREATMENT. THEY AVOID UNCERTAINITY.
               </p>
               <button
