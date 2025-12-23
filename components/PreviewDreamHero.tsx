@@ -3,14 +3,27 @@ import { Sparkles, ArrowRight, Zap, CheckCircle2 } from 'lucide-react';
 
 export const PreviewDreamHero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (!isMobile) {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      }
     };
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, [isMobile]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0a0e1a' }}>
@@ -101,7 +114,9 @@ export const PreviewDreamHero: React.FC = () => {
               <div 
                 className="relative w-full aspect-[2/1] overflow-hidden rounded-2xl transform-gpu transition-all duration-500 group-hover:scale-[1.02]"
                 style={{
-                  transform: `perspective(1000px) rotateX(${mousePosition.y * 0.005}deg) rotateY(${mousePosition.x * 0.005}deg)`,
+                  transform: !isMobile 
+                    ? `perspective(1000px) rotateX(${mousePosition.y * 0.005}deg) rotateY(${mousePosition.x * 0.005}deg)`
+                    : 'none',
                 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -112,11 +127,11 @@ export const PreviewDreamHero: React.FC = () => {
                 />
                 
                 {/* Overlay Labels */}
-                <div className="absolute top-4 left-4 px-4 py-2 bg-black/60 backdrop-blur-sm rounded-lg border border-white/10">
-                  <span className="text-xs font-black text-white uppercase tracking-wider">BEFORE</span>
+                <div className="absolute top-2 left-2 md:top-4 md:left-4 px-2 py-1 md:px-4 md:py-2 bg-black/60 backdrop-blur-sm rounded-lg border border-white/10">
+                  <span className="text-[10px] md:text-xs font-black text-white uppercase tracking-wider">BEFORE</span>
                 </div>
-                <div className="absolute top-4 right-4 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg border border-black/10">
-                  <span className="text-xs font-black text-black uppercase tracking-wider">AFTER</span>
+                <div className="absolute top-2 right-2 md:top-4 md:right-4 px-2 py-1 md:px-4 md:py-2 bg-white/90 backdrop-blur-sm rounded-lg border border-black/10">
+                  <span className="text-[10px] md:text-xs font-black text-black uppercase tracking-wider">AFTER</span>
                 </div>
               </div>
             </div>
