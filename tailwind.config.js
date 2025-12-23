@@ -7,7 +7,12 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        '5xl': '44rem',
+        'xl': '45rem',
+      },
+    },
   },
   plugins: [],
 }

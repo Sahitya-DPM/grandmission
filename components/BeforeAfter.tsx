@@ -59,8 +59,8 @@ const ComparisonSlider = ({ before, after }: { before: string, after: string }) 
         </div>
       </div>
 
-      <div className="absolute top-6 left-6 px-4 py-2 bg-[#0A0E1A] text-white text-xs font-black tracking-[0.2em] uppercase z-20">Before</div>
-      <div className="absolute top-6 right-6 px-4 py-2 bg-white text-[#0A0E1A] text-xs font-black tracking-[0.2em] uppercase z-20 border border-slate-100">After</div>
+      <div className="absolute top-2 left-2 md:top-6 md:left-6 px-2 py-1 md:px-4 md:py-2 bg-[#0A0E1A] text-white text-[10px] md:text-xs font-black tracking-[0.2em] uppercase z-20">Before</div>
+      <div className="absolute top-2 right-2 md:top-6 md:right-6 px-2 py-1 md:px-4 md:py-2 bg-white text-[#0A0E1A] text-[10px] md:text-xs font-black tracking-[0.2em] uppercase z-20 border border-slate-100">After</div>
     </div>
   );
 };

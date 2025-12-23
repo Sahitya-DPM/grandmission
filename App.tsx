@@ -17,15 +17,28 @@ function App() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
+        {/* 1. Header - Navbar is above */}
+        
+        {/* Your New Smile Revealed Before Treatment Begins section */}
         <PreviewDreamHero />
-        <Hero />
-        <InteractivePreview />
+        
+        {/* 2. See Your Final Result, First section */}
         <Philosophy />
-        <BeforeAfter />
+        
+        {/* 3. SELECT YOUR OBJECTIVE. section */}
         <SmileGoals />
-        <Features />
-        <Process />
-        <Disclaimer />
+        
+        {/* 4. Live Engine DYNAMIC VISUALIZER. section */}
+        <InteractivePreview />
+        
+        {/* 5. PREVIEW THE DREAM NOW. Section */}
+        <Hero />
+        
+        {/* Commented out for future use */}
+        {/* <BeforeAfter /> */}
+        {/* <Features /> */}
+        {/* <Process /> */}
+        {/* <Disclaimer /> */}
       </main>
       <Footer />
     </div>
