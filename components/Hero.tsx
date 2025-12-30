@@ -74,20 +74,17 @@ export const Hero: React.FC = () => {
             NOW.
           </h1>
           
-          <p className="text-base md:text-lg lg:text-xl text-slate-400 mb-12 leading-relaxed font-bold uppercase tracking-tight">
-            Clinical precision meets artificial intelligence. Upload your photo for a high-fidelity visualization of your aesthetic potential.
-          </p>
-
-          <div className="space-y-5 mb-16 border-l border-white/10 pl-8">
-            {[
-              "ZERO COMMITMENT",
-              "INSTANT VISUALIZATION"
-            ].map((bullet, idx) => (
-              <div key={idx} className="flex items-center gap-4">
-                <div className="w-2 h-2 bg-blue-500"></div>
-                <span className="text-white font-black text-xs tracking-[0.4em] uppercase">{bullet}</span>
-              </div>
-            ))}
+          <div className="mb-12">
+            <h2 className="text-white mb-6 font-bold" style={{ fontSize: '22px' }}>
+              DISCLAIMER:
+            </h2>
+            <div className="text-slate-300 leading-relaxed space-y-4" style={{ fontSize: '14px' }}>
+              <p className="uppercase">
+                SMILE PREVIEWS ARE DIGITAL SIMULATIONS CREATED TO HELP YOU VISUALIZE POTENTIAL OUTCOMES OF TREATMENT. THESE IMAGES ARE FOR ILLUSTRATIVE PURPOSES ONLY AND ARE NOT A GUARANTEE OF SPECIFIC RESULTS.
+             ACTUAL TREATMENT RESULTS MAY VARY BASED ON INDIVIDUAL ORAL HEALTH, ANATOMY, TREATMENT PLAN, COMPLIANCE, AND CLINICAL FACTORS DETERMINED DURING YOUR DENTAL EVALUATION. FINAL OUTCOMES DEPEND ON THE TYPE OF TREATMENT PROVIDED AND HOW YOUR SMILE RESPONDS OVER TIME.
+                YOUR DENTIST WILL REVIEW ALL TREATMENT OPTIONS WITH YOU AND DISCUSS WHAT RESULTS MAY BE REALISTICALLY EXPECTED FOR YOUR UNIQUE SMILE.
+              </p>
+            </div>
           </div>
 
           <div className="flex items-center gap-6 opacity-20">
