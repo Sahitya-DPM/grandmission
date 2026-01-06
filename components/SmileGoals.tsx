@@ -6,22 +6,34 @@ const goals = [
   {
     tag: "STEP 01",
       title: "Upload Your Photo",
+<<<<<<< HEAD
     image: "/images/Step-1.jpeg",
+=======
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200",
+>>>>>>> 63aeafb14e8412f00c2c11a4ece6efa014ce6f5b
     description: "A clear face photo showing your smile is all we need.",
       cta: "Generate my Smile Preview"
   },
   {
     tag: "STEP 02",
       title: "We Design Your Smile Preview",
+<<<<<<< HEAD
     image: "/images/Step-2.jpeg",
+=======
+    image: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&q=80&w=1200",
+>>>>>>> 63aeafb14e8412f00c2c11a4ece6efa014ce6f5b
     description: "Our dental team uses advanced software to generate a personalized smile simulation.",
       cta: "Generate my Smile Preview"
   },
   {
     tag: "STEP 03",
       title: "Receive Your Smile Preview by Email",
+<<<<<<< HEAD
     image: "/images/Step-3.mp4",
     isVideo: true,
+=======
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200",
+>>>>>>> 63aeafb14e8412f00c2c11a4ece6efa014ce6f5b
     description: "You'll get an image showing how your smile can look after treatment.",
       cta: "Generate my Smile Preview"
   }
