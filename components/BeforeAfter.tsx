@@ -59,13 +59,8 @@ const ComparisonSlider = ({ before, after }: { before: string, after: string }) 
         </div>
       </div>
 
-<<<<<<< HEAD
       <div className="absolute top-2 left-2 md:top-6 md:left-6 px-2 py-1 md:px-4 md:py-2 bg-[#0A0E1A] text-white text-[10px] md:text-xs font-black tracking-[0.2em] uppercase z-20">Before</div>
       <div className="absolute top-2 right-2 md:top-6 md:right-6 px-2 py-1 md:px-4 md:py-2 bg-white text-[#0A0E1A] text-[10px] md:text-xs font-black tracking-[0.2em] uppercase z-20 border border-slate-100">After</div>
-=======
-      <div className="absolute top-6 left-6 px-4 py-2 bg-[#0A0E1A] text-white text-xs font-black tracking-[0.2em] uppercase z-20">Before</div>
-      <div className="absolute top-6 right-6 px-4 py-2 bg-white text-[#0A0E1A] text-xs font-black tracking-[0.2em] uppercase z-20 border border-slate-100">After</div>
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
     </div>
   );
 };
@@ -74,13 +69,8 @@ export const BeforeAfter: React.FC = () => {
   return (
     <section className="py-32 bg-[#F4F6F4] relative border-y border-slate-200 overflow-hidden">
       {/* Brand Structural Accents */}
-<<<<<<< HEAD
       <div className="absolute top-0 left-0 w-full h-2 bg-[#3B86F2]/20"></div>
       <div className="absolute top-0 right-1/4 w-px h-full bg-[#3B86F2]/5"></div>
-=======
-      <div className="absolute top-0 left-0 w-full h-2 bg-[#71866B]/20"></div>
-      <div className="absolute top-0 right-1/4 w-px h-full bg-[#71866B]/5"></div>
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-24 gap-12">
@@ -90,11 +80,7 @@ export const BeforeAfter: React.FC = () => {
               <span className="text-xs font-black tracking-[0.4em] text-[#2F74B5] uppercase">Clinical Registry</span>
             </div>
             <h2 className="text-5xl lg:text-7xl font-extrabold text-[#0A0E1A] tracking-tighter uppercase leading-none">
-<<<<<<< HEAD
               HISTORICAL <span className="text-[#3B86F2]">EVIDENCE.</span>
-=======
-              HISTORICAL <span className="text-[#71866B]">EVIDENCE.</span>
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
             </h2>
           </div>
           <div className="px-10 py-8 border-l-4 border-[#FF9A00] bg-white shadow-xl shadow-slate-200/50">

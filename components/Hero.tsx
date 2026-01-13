@@ -1,103 +1,96 @@
-
-<<<<<<< HEAD
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ShieldCheck } from 'lucide-react';
 
 export const Hero: React.FC = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
-    // Load GHL form embed script
+    // Load the form embed script
     const script = document.createElement('script');
     script.src = 'https://link.digitalpresencematters.com/js/form_embed.js';
     script.async = true;
     document.body.appendChild(script);
 
+    // Listen for form submission events from the iframe
+    const handleMessage = (event: MessageEvent) => {
+      // Log all messages for debugging (can be removed in production)
+      if (event.origin === 'https://link.digitalpresencematters.com') {
+        console.log('Form message received:', event.data);
+      }
+
+      // Check if message is from the form domain
+      if (event.origin !== 'https://link.digitalpresencematters.com') {
+        return;
+      }
+
+      // Check for form submission events - handle various message formats
+      const data = event.data;
+      if (data) {
+        // Check for different possible message formats
+        const dataString = typeof data === 'string' ? data.toLowerCase() : JSON.stringify(data).toLowerCase();
+        const isFormSubmit = 
+          data.type === 'form-submit' ||
+          data.event === 'form-submit' ||
+          data.eventType === 'form-submit' ||
+          data.formId === 'MYskIJVkjhH8myMgGoAJ' ||
+          data.action === 'submit' ||
+          data.status === 'success' ||
+          data.status === 'submitted' ||
+          dataString.includes('form-submit') ||
+          dataString.includes('submitted') ||
+          dataString.includes('success') ||
+          dataString.includes('complete') ||
+          dataString.includes('thank');
+
+        if (isFormSubmit) {
+          // Small delay to ensure form processes submission
+          setTimeout(() => {
+            navigate('/survey');
+          }, 500);
+        }
+      }
+    };
+
+    // Listen for postMessage events
+    window.addEventListener('message', handleMessage);
+
+    // Also listen for storage events (some forms use localStorage)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key && (e.key.includes('form') || e.key.includes('submit'))) {
+        navigate('/survey');
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+
     return () => {
-      // Cleanup script on unmount
+      window.removeEventListener('message', handleMessage);
+      window.removeEventListener('storage', handleStorageChange);
+      // Cleanup: remove script on unmount
       const existingScript = document.querySelector('script[src="https://link.digitalpresencematters.com/js/form_embed.js"]');
       if (existingScript) {
         document.body.removeChild(existingScript);
       }
     };
-  }, []);
-
-  return (
-    <>
-      <style>{`
-        #evaluation-form iframe {
-          height: 750px !important;
-          overflow: hidden !important;
-        }
-        #evaluation-form iframe::-webkit-scrollbar {
-          display: none !important;
-          width: 0 !important;
-          height: 0 !important;
-        }
-        #evaluation-form {
-          -ms-overflow-style: none !important;
-          scrollbar-width: none !important;
-          overflow: hidden !important;
-        }
-        #evaluation-form::-webkit-scrollbar {
-          display: none !important;
-          width: 0 !important;
-          height: 0 !important;
-        }
-        #evaluation-form * {
-          -ms-overflow-style: none !important;
-          scrollbar-width: none !important;
-        }
-        #evaluation-form *::-webkit-scrollbar {
-          display: none !important;
-          width: 0 !important;
-          height: 0 !important;
-        }
-        #inline-wlgA39lNyyz2pOEeAE0H {
-          height: 750px !important;
-          overflow: hidden !important;
-        }
-        #inline-wlgA39lNyyz2pOEeAE0H::-webkit-scrollbar {
-          display: none !important;
-          width: 0 !important;
-          height: 0 !important;
-        }
-      `}</style>
-      <section className="flex flex-col lg:flex-row min-h-[calc(100vh-88px)]">
-=======
-import React, { useState } from 'react';
-import { CheckCircle, Upload, Loader2, ShieldCheck, ArrowRight } from 'lucide-react';
-
-export const Hero: React.FC = () => {
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsProcessing(true);
-    setTimeout(() => {
-      setIsProcessing(false);
-      setIsSuccess(true);
-    }, 2500);
-  };
+  }, [navigate]);
 
   return (
     <section className="flex flex-col lg:flex-row min-h-[calc(100vh-88px)]">
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
       {/* LEFT PANEL */}
-      <div className="lg:w-[45%] bg-[#0A0E1A] p-10 lg:p-24 flex flex-col justify-center text-white relative">
-        <div className="relative z-10 max-w-lg">
-          <div className="inline-block px-4 py-1.5 border border-white/20 mb-10">
+      <div className="lg:w-[45%] bg-[#0A0E1A] p-6 md:p-10 lg:p-24 flex flex-col justify-center text-white relative text-center lg:text-left">
+        <div className="relative z-10 max-w-lg mx-auto lg:mx-0">
+          <div className="inline-block px-4 py-1.5 border border-white/20 mb-6 md:mb-10">
             <span className="text-xs font-black tracking-[0.3em] uppercase text-blue-400">AI SMILE ARCHITECTURE</span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl font-extrabold mb-10 leading-[0.95] tracking-tighter">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-10 leading-[0.95] tracking-tighter">
             PREVIEW <br />
             <span className="text-blue-500">THE DREAM</span> <br />
             NOW.
           </h1>
           
-<<<<<<< HEAD
-          <div className="mb-12">
-            <h2 className="text-white mb-6 font-bold" style={{ fontSize: '22px' }}>
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-white mb-4 md:mb-6 font-bold" style={{ fontSize: '22px' }}>
               DISCLAIMER:
             </h2>
             <div className="text-slate-300 leading-relaxed" style={{ fontSize: '12px' }}>
@@ -105,26 +98,9 @@ export const Hero: React.FC = () => {
                 Smile previews are digital simulations created to help you visualize potential outcomes of treatment. These images are for illustrative purposes only and are not a guarantee of specific results. Actual treatment results may vary based on individual oral health, anatomy, treatment plan, compliance, and clinical factors determined during your dental evaluation. Final outcomes depend on the type of treatment provided and how your smile responds over time. Your dentist will review all treatment options with you and discuss what results may be realistically expected for your unique smile.
               </p>
             </div>
-=======
-          <p className="text-xl text-slate-400 mb-12 leading-relaxed font-bold uppercase tracking-tight">
-            Clinical precision meets artificial intelligence. Upload your photo for a high-fidelity visualization of your aesthetic potential.
-          </p>
-
-          <div className="space-y-5 mb-16 border-l border-white/10 pl-8">
-            {[
-              "ZERO COMMITMENT",
-              "INSTANT VISUALIZATION",
-              "CLINICAL OVERSIGHT"
-            ].map((bullet, idx) => (
-              <div key={idx} className="flex items-center gap-4">
-                <div className="w-2 h-2 bg-blue-500"></div>
-                <span className="text-white font-black text-xs tracking-[0.4em] uppercase">{bullet}</span>
-              </div>
-            ))}
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
           </div>
 
-          <div className="flex items-center gap-6 opacity-20">
+          <div className="flex items-center justify-center lg:justify-start gap-6 opacity-20">
             <div className="h-px flex-grow bg-white"></div>
             <ShieldCheck className="w-6 h-6" />
             <div className="h-px flex-grow bg-white"></div>
@@ -132,34 +108,42 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-<<<<<<< HEAD
-      {/* RIGHT PANEL - GHL Form */}
-      <div id="evaluation-form" className="lg:w-[55%] bg-white flex items-center justify-center overflow-hidden p-6 md:p-12 lg:p-16">
-        <div className="w-full" style={{ maxWidth: '45rem' }}>
-          <div className="mb-8 md:mb-14">
-            <h2 className="text-4xl md:text-4xl font-extrabold text-[#0A0E1A] mb-4 tracking-tighter uppercase">
-              <span className="inline-block">Smile</span>
-              <span className="inline-block ml-2 md:ml-4">Evaluation</span>
-            </h2>
-            <div className="w-12 h-1.5 bg-[#FF9A00]"></div>
-          </div>
-          
-          <div className="h-full min-h-[500px] md:min-h-[600px] lg:min-h-[750px] overflow-hidden" style={{ overflow: 'hidden' }}>
-            <iframe
-              src="https://link.digitalpresencematters.com/widget/form/wlgA39lNyyz2pOEeAE0H"
-              className="w-full border-none rounded"
+      {/* RIGHT PANEL - Form */}
+      <div id="evaluation-form" className="lg:w-[55%] bg-white p-6 pb-12 md:p-12 lg:p-16">
+        <div className="w-full" style={{ maxWidth: '45rem', margin: '0 auto' }}>
+          {/* SMILE EVALUATION Heading */}
+          <div className="mb-8 md:mb-14 text-center lg:text-left">
+            <h2 
+              className="text-4xl md:text-4xl font-extrabold mb-4 tracking-tighter uppercase" 
               style={{ 
-                width: '100%', 
-                height: '750px', 
-                minHeight: '500px',
-                border: 'none', 
-                borderRadius: '4px',
-                overflow: 'hidden',
-                display: 'block'
+                fontFamily: 'Sansation, sans-serif', 
+                fontWeight: 'bold', 
+                color: '#0A0E1A',
+                position: 'relative'
               }}
-              scrolling="no"
-              frameBorder="0"
-              id="inline-wlgA39lNyyz2pOEeAE0H" 
+            >
+              <span className="inline-block relative" style={{ paddingBottom: '12px' }}>
+                SMILE
+                <div 
+                  className="absolute bg-[#FF9A00]" 
+                  style={{ 
+                    width: '64px', 
+                    left: '0', 
+                    bottom: '4px',
+                    height: '6px'
+                  }}
+                ></div>
+              </span>
+              <span className="inline-block ml-2 md:ml-4">EVALUATION</span>
+            </h2>
+          </div>
+
+          {/* Form Iframe */}
+          <div className="w-full" style={{ height: '648px' }}>
+            <iframe
+              src="https://link.digitalpresencematters.com/widget/form/MYskIJVkjhH8myMgGoAJ"
+              style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
+              id="inline-MYskIJVkjhH8myMgGoAJ"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
               data-trigger-value=""
@@ -167,118 +151,15 @@ export const Hero: React.FC = () => {
               data-activation-value=""
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
-              data-form-name=" grand mission smile evaluation form"
-              data-height="565"
-              data-layout-iframe-id="inline-wlgA39lNyyz2pOEeAE0H"
-              data-form-id="wlgA39lNyyz2pOEeAE0H"
-              title=" grand mission smile evaluation form"
-            >
-            </iframe>
+              data-form-name="Your New Smile Revealed Before Treatment Begins"
+              data-height="648"
+              data-layout-iframe-id="inline-MYskIJVkjhH8myMgGoAJ"
+              data-form-id="MYskIJVkjhH8myMgGoAJ"
+              title="Your New Smile Revealed Before Treatment Begins"
+            />
           </div>
         </div>
       </div>
     </section>
-    </>
-=======
-      {/* RIGHT PANEL - Evaluation Form */}
-      <div id="evaluation-form" className="lg:w-[55%] bg-white flex items-center justify-center p-8 lg:p-20">
-        <div className="w-full max-w-xl">
-          {!isSuccess ? (
-            <div className="bg-white p-1 md:p-4">
-              <div className="mb-14">
-                <h2 className="text-4xl font-extrabold text-[#0A0E1A] mb-4 tracking-tighter uppercase">Smile Evaluation</h2>
-                <div className="w-12 h-1.5 bg-[#FF9A00]"></div>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Full Name</label>
-                    <input 
-                      type="text" 
-                      required
-                      placeholder="Jane Smith"
-                      className="w-full px-5 py-5 bg-[#F8FAFC] rounded-none border-slate-100 focus:border-[#FF9A00] outline-none text-base font-bold placeholder:text-slate-300 transition-all"
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Phone Number</label>
-                    <input 
-                      type="tel" 
-                      required
-                      placeholder="(281) 000-0000"
-                      className="w-full px-5 py-5 bg-[#F8FAFC] rounded-none border-slate-100 focus:border-[#FF9A00] outline-none text-base font-bold placeholder:text-slate-300 transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Email Address</label>
-                  <input 
-                    type="email" 
-                    required
-                    placeholder="jane@example.com"
-                    className="w-full px-5 py-5 bg-[#F8FAFC] rounded-none border-slate-100 focus:border-[#FF9A00] outline-none text-base font-bold placeholder:text-slate-300 transition-all"
-                  />
-                </div>
-
-                <div className="space-y-3">
-                  <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Clinical Photo</label>
-                  <div className="border border-dashed border-slate-200 rounded-none p-16 text-center hover:border-[#FF9A00] transition-all cursor-pointer relative bg-slate-50/50 group">
-                    <input type="file" required className="absolute inset-0 opacity-0 cursor-pointer" accept="image/*" />
-                    <Upload className="h-8 w-8 text-slate-300 mx-auto mb-4 group-hover:text-[#FF9A00] transition-colors" />
-                    <p className="text-xs font-black text-slate-400 uppercase tracking-[0.3em]">Drop Portrait File</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="pt-1">
-                    <input type="checkbox" required className="w-4 h-4 accent-[#FF9A00] rounded-none border-slate-300" id="consent" />
-                  </div>
-                  <label htmlFor="consent" className="text-xs text-slate-400 font-bold leading-relaxed cursor-pointer uppercase tracking-widest">
-                    I acknowledge this visualization is for illustrative purposes only.
-                  </label>
-                </div>
-
-                <button 
-                  type="submit" 
-                  disabled={isProcessing}
-                  className="group relative w-full py-7 bg-[#FF9A00] hover:bg-[#0A0E1A] text-white rounded-none font-black text-xs uppercase tracking-[0.3em] transition-all flex items-center justify-center gap-8 shadow-lg shadow-orange-500/10"
-                >
-                  {isProcessing ? (
-                    <span className="flex items-center justify-center gap-4">
-                      <Loader2 className="h-5 w-5 animate-spin" />
-                      PROCESSING DATA
-                    </span>
-                  ) : (
-                    <>
-                      GENERATE PREVIEW
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
-          ) : (
-            <div className="text-center p-16 border border-slate-100 bg-white">
-                <div className="w-24 h-24 bg-green-50 flex items-center justify-center mx-auto mb-10">
-                    <CheckCircle className="h-10 w-10 text-green-500" />
-                </div>
-                <h2 className="text-4xl font-extrabold text-[#0A0E1A] mb-6 tracking-tighter uppercase leading-none">Transmission <br/><span className="text-slate-300">Successful</span></h2>
-                <p className="text-slate-400 mb-12 text-sm font-bold leading-relaxed uppercase tracking-[0.2em] max-w-xs mx-auto">
-                    Our architects are analyzing your profile. Check your inbox within 24 hours.
-                </p>
-                <button 
-                    onClick={() => setIsSuccess(false)}
-                    className="bg-[#FF9A00] text-white px-16 py-7 rounded-none font-black text-xs uppercase tracking-[0.3em] hover:bg-[#0A0E1A] transition-all"
-                >
-                    New Submission
-                </button>
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
   );
 };

@@ -17,12 +17,8 @@ export default defineConfig(({ mode }) => {
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '.'),
-<<<<<<< HEAD
         },
         extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']
-=======
-        }
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
       }
     };
 });

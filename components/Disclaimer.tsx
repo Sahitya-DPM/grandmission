@@ -26,7 +26,6 @@ const governancePoints = [
 ];
 
 export const Disclaimer: React.FC = () => {
-<<<<<<< HEAD
   const scrollToForm = () => {
     const element = document.getElementById('evaluation-form');
     if (element) {
@@ -34,8 +33,6 @@ export const Disclaimer: React.FC = () => {
     }
   };
 
-=======
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
   return (
     <section className="py-32 bg-white relative overflow-hidden border-t border-slate-100">
       {/* Structural Watermark */}
@@ -86,14 +83,10 @@ export const Disclaimer: React.FC = () => {
             </div>
           </div>
 
-<<<<<<< HEAD
           <button 
             onClick={scrollToForm}
             className="group relative flex items-center justify-center gap-10 bg-[#FF9A00] hover:bg-[#0A0E1A] text-white px-16 py-8 rounded-none font-black text-xs uppercase tracking-[0.3em] transition-all shadow-xl shadow-orange-500/10"
           >
-=======
-          <button className="group relative flex items-center justify-center gap-10 bg-[#FF9A00] hover:bg-[#0A0E1A] text-white px-16 py-8 rounded-none font-black text-xs uppercase tracking-[0.3em] transition-all shadow-xl shadow-orange-500/10">
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
             Schedule Diagnostic
             <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             

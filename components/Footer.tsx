@@ -1,10 +1,6 @@
 
 import React from 'react';
-<<<<<<< HEAD
 import { ArrowUp, MapPin, Phone } from 'lucide-react';
-=======
-import { ShieldCheck, ArrowUp, MapPin, Phone, Mail } from 'lucide-react';
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -12,13 +8,12 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#05070A] text-white pt-32 pb-16 border-t border-white/5">
+    <footer className="bg-[#05070A] text-white pt-32 pb-16 border-t border-white/5 mt-8 md:mt-0">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-20 mb-28">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-20 mb-28 text-center md:text-left">
           
           {/* Brand Column */}
-          <div className="flex flex-col gap-12">
-<<<<<<< HEAD
+          <div className="flex flex-col gap-12 items-center md:items-start">
             <div className="flex items-center">
               <img 
                 src="/images/grand_mission-logo footer.webp" 
@@ -26,24 +21,10 @@ export const Footer: React.FC = () => {
                 className="h-10 w-auto object-contain"
               />
             </div>
-=======
-            <div className="flex items-center gap-5">
-              <div className="bg-white p-2.5 rounded-none shrink-0">
-                <ShieldCheck className="h-7 w-7 text-[#0A0E1A]" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-2xl font-extrabold tracking-tighter text-white uppercase">Grand Mission</span>
-                <span className="text-xs font-black text-slate-500 tracking-[0.3em]">DENTISTRY</span>
-              </div>
-            </div>
-            <p className="text-slate-500 text-sm leading-relaxed font-bold uppercase tracking-[0.2em] opacity-70 max-w-[320px]">
-              A nexus of clinical excellence and aesthetic precision. Engineering the future of personalized dental care in Richmond, TX.
-            </p>
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
           </div>
           
           {/* Contact Column */}
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="font-black text-slate-600 mb-12 text-xs uppercase tracking-[0.4em]">CONTACT</h4>
             <div className="space-y-10">
               <div className="flex gap-5 items-start">
@@ -64,20 +45,11 @@ export const Footer: React.FC = () => {
                   (281) 789-8836
                 </a>
               </div>
-<<<<<<< HEAD
-=======
-              <div className="flex gap-5 items-center">
-                <Mail className="w-5 h-5 text-slate-600 shrink-0" />
-                <a href="mailto:office@grandmissiondentistry.com" className="text-sm text-white font-black uppercase tracking-[0.15em] hover:text-[#FF9A00] transition-colors">
-                  OFFICE@GRANDMISSIONDENTISTRY.COM
-                </a>
-              </div>
->>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
             </div>
           </div>
 
           {/* Hours Column */}
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="font-black text-slate-600 mb-12 text-xs uppercase tracking-[0.4em]">OFFICE HOURS</h4>
             <ul className="space-y-6 text-sm text-white font-black uppercase tracking-[0.15em]">
               <li className="flex justify-between items-center border-b border-white/5 pb-3">
@@ -112,7 +84,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Governance Column */}
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="font-black text-slate-600 mb-12 text-xs uppercase tracking-[0.4em]">GOVERNANCE</h4>
             <ul className="space-y-8 text-sm text-white font-black uppercase tracking-[0.2em]">
               <li><a href="#" className="hover:text-[#FF9A00] transition-colors">PRIVACY POLICY</a></li>
@@ -123,7 +95,7 @@ export const Footer: React.FC = () => {
         </div>
         
         {/* Bottom Bar */}
-        <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+        <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-10 text-center">
           <p className="text-xs text-slate-600 font-black uppercase tracking-[0.5em]">
             &copy; {new Date().getFullYear()} GRAND MISSION DENTISTRY. ALL RIGHTS RESERVED.
           </p>
